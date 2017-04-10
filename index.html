@@ -461,14 +461,14 @@
 
 <h4 id="creating-an-authentication-endpoint-url">Creating an authentication endpoint URL</h4>
 
-<p>You must use the <code class="prettyprint">/wc-auth/v2/authorize</code> endpoint and pass the above parameters as a query string.</p>
+<p>You must use the <code class="prettyprint">/wc-auth/v1/authorize</code> endpoint and pass the above parameters as a query string.</p>
 
 <blockquote>
 <p>Example of how to build an authentication URL:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># Bash example</span>
 <span class="nv">STORE_URL</span><span class="o">=</span><span class="s1">'http://example.com'</span>
-<span class="nv">ENDPOINT</span><span class="o">=</span><span class="s1">'/wc-auth/v2/authorize'</span>
+<span class="nv">ENDPOINT</span><span class="o">=</span><span class="s1">'/wc-auth/v1/authorize'</span>
 <span class="nv">PARAMS</span><span class="o">=</span><span class="s2">"app_name=My App Name&amp;scope=read_write&amp;user_id=123&amp;return_url=http://app.com/return-page&amp;callback_url=https://app.com/callback-endpoint"</span>
 <span class="nv">QUERY_STRING</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>perl -MURI::Escape -e <span class="s1">'print uri_escape($ARGV[0]);'</span> <span class="s2">"</span><span class="nv">$PARAMS</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span>
 <span class="nv">QUERY_STRING</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$QUERY_STRING</span> | sed -e <span class="s2">"s/%20/</span><span class="se">\+</span><span class="s2">/g"</span> -e <span class="s2">"s/%3D/</span><span class="se">\=</span><span class="s2">/g"</span> -e <span class="s2">"s/%26/</span><span class="se">\&amp;</span><span class="s2">/g"</span><span class="k">)</span>
@@ -478,7 +478,7 @@
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'querystring'</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">store_url</span> <span class="o">=</span> <span class="s1">'http://example.com'</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="s1">'/wc-auth/v2/authorize'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="s1">'/wc-auth/v1/authorize'</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">app_name</span><span class="p">:</span> <span class="s1">'My App Name'</span><span class="p">,</span>
   <span class="na">scope</span><span class="p">:</span> <span class="s1">'read_write'</span><span class="p">,</span>
@@ -492,7 +492,7 @@
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$store_url</span> <span class="o">=</span> <span class="s1">'http://example.com'</span><span class="p">;</span>
-<span class="nv">$endpoint</span> <span class="o">=</span> <span class="s1">'/wc-auth/v2/authorize'</span><span class="p">;</span>
+<span class="nv">$endpoint</span> <span class="o">=</span> <span class="s1">'/wc-auth/v1/authorize'</span><span class="p">;</span>
 <span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">'app_name'</span> <span class="o">=&gt;</span> <span class="s1">'My App Name'</span><span class="p">,</span>
     <span class="s1">'scope'</span> <span class="o">=&gt;</span> <span class="s1">'write'</span><span class="p">,</span>
@@ -508,7 +508,7 @@
 <pre class="highlight python"><code><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
 
 <span class="n">store_url</span> <span class="o">=</span> <span class="s">'http://example.com'</span>
-<span class="n">endpoint</span> <span class="o">=</span> <span class="s">'/wc-auth/v2/authorize'</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s">'/wc-auth/v1/authorize'</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"app_name"</span><span class="p">:</span> <span class="s">"My App Name"</span><span class="p">,</span>
     <span class="s">"scope"</span><span class="p">:</span> <span class="s">"read_write"</span><span class="p">,</span>
@@ -523,7 +523,7 @@
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 
 <span class="n">store_url</span> <span class="o">=</span> <span class="s1">'http://example.com'</span>
-<span class="n">endpoint</span> <span class="o">=</span> <span class="s1">'/wc-auth/v2/authorize'</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s1">'/wc-auth/v1/authorize'</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">app_name: </span><span class="s2">"My App Name"</span><span class="p">,</span>
   <span class="ss">scope: </span><span class="s2">"read_write"</span><span class="p">,</span>
