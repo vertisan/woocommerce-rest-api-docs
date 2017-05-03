@@ -32311,6 +32311,7 @@ woocommerce.post("</span><span class="n">products</span><span class="o">/</span>
 <p>Delivery is performed using <code class="prettyprint">wp_remote_post()</code> (HTTP POST) and processed in the background by default using wp-cron. A few custom headers are added to the request to help the receiver process the webhook:</p>
 
 <ul>
+<li><code class="prettyprint">X-WC-Webhook-Source</code>: <code class="prettyprint">http://example.com/</code>.</li>
 <li><code class="prettyprint">X-WC-Webhook-Topic</code> - e.g. <code class="prettyprint">order.updated</code>.</li>
 <li><code class="prettyprint">X-WC-Webhook-Resource</code> - e.g. <code class="prettyprint">order</code>.</li>
 <li><code class="prettyprint">X-WC-Webhook-Event</code> - e.g. <code class="prettyprint">updated</code>.</li>
@@ -32506,6 +32507,11 @@ woocommerce.post("</span><span class="n">products</span><span class="o">/</span>
 <td><code class="prettyprint">Content-Type</code></td>
 <td>string</td>
 <td>The request content-type, default is &ldquo;application/json&rdquo;. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code class="prettyprint">X-WC-Webhook-Source</code></td>
+<td>string</td>
+<td>The webhook source. <i class="label label-info">read-only</i></td>
 </tr>
 <tr>
 <td><code class="prettyprint">X-WC-Webhook-Topic</code></td>
