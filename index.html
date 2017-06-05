@@ -351,12 +351,12 @@
 <span class="nb">require</span> <span class="s2">"woocommerce_api"</span>
 
 <span class="n">woocommerce</span> <span class="o">=</span> <span class="no">WooCommerce</span><span class="o">::</span><span class="no">API</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
-  <span class="s2">"http://example.com"</span><span class="p">,</span> <span class="c1"># Your store URL</span>
+  <span class="s2">"https://example.com"</span><span class="p">,</span> <span class="c1"># Your store URL</span>
   <span class="s2">"consumer_key"</span><span class="p">,</span> <span class="c1"># Your consumer key</span>
   <span class="s2">"consumer_secret"</span><span class="p">,</span> <span class="c1"># Your consumer secret</span>
   <span class="p">{</span>
-    <span class="ss">wp_json: </span><span class="kp">true</span><span class="p">,</span> <span class="c1"># Enable the WP REST API integration</span>
-    <span class="ss">version: </span><span class="s2">"v3"</span> <span class="c1"># WooCommerce WP REST API version</span>
+    <span class="ss">wp_api: </span><span class="kp">true</span><span class="p">,</span> <span class="c1"># Enable the WP REST API integration</span>
+    <span class="ss">version: </span><span class="s2">"wc/v2"</span> <span class="c1"># WooCommerce WP REST API version</span>
   <span class="p">}</span>
 <span class="p">)</span>
 </code></pre>
