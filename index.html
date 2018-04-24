@@ -140,11 +140,11 @@
 <p>Some general information about responses:</p>
 
 <ul>
-<li>Dates are returned in <a href="http://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format in UTC timezone: <code class="prettyprint">YYYY-MM-DDTHH:MM:SSZ</code></li>
+<li>Dates are returned in ISO8601 format: <code class="prettyprint">YYYY-MM-DDTHH:MM:SS</code></li>
 <li>Resource IDs are returned as integers.</li>
 <li>Any decimal monetary amount, such as prices or totals, will be returned as strings with two decimal places.</li>
 <li>Other amounts, such as item counts, are returned as integers.</li>
-<li>Blank fields are generally included as <code class="prettyprint">null</code> instead of being returned as blank strings or omitted.</li>
+<li>Blank fields are generally included as <code class="prettyprint">null</code> or emtpy string instead of being omitted.</li>
 </ul>
 
 <h3 id="jsonp-support">JSONP Support</h3>
@@ -18864,7 +18864,7 @@ Order notes are added by administrators and programmatically to store data about
 </tr>
 <tr>
 <td><code class="prettyprint">shipping_class_id</code></td>
-<td>string</td>
+<td>integer</td>
 <td>Shipping class ID. <i class="label label-info">read-only</i></td>
 </tr>
 <tr>
@@ -35687,7 +35687,7 @@ woocommerce.post("</span><span class="n">products</span><span class="o">/</span>
 
 					<h1 id="payment-gateways">Payment gateways</h1>
 
-<p>The payment gateways API allows you to view, and update individual payment gateways.</p>
+<p>The payment gateways API allows you to view, and update individual payment gateways. Results are not paginated - all gateways will be returned.</p>
 
 <h2 id="payment-gateway-properties">Payment gateway properties</h2>
 

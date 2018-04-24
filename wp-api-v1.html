@@ -132,11 +132,11 @@
 <p>Some general information about responses:</p>
 
 <ul>
-<li>Dates are returned in <a href="http://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format in UTC timezone: <code class="prettyprint">YYYY-MM-DDTHH:MM:SSZ</code></li>
+<li>Dates are returned in ISO8601 format: <code class="prettyprint">YYYY-MM-DDTHH:MM:SS</code></li>
 <li>Resource IDs are returned as integers.</li>
 <li>Any decimal monetary amount, such as prices or totals, will be returned as strings with two decimal places.</li>
 <li>Other amounts, such as item counts, are returned as integers.</li>
-<li>Blank fields are generally included as <code class="prettyprint">null</code> instead of being returned as blank strings or omitted.</li>
+<li>Blank fields are generally included as <code class="prettyprint">null</code> or emtpy string instead of being omitted.</li>
 </ul>
 
 <h3 id="jsonp-support">JSONP Support</h3>
