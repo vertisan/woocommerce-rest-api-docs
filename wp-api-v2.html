@@ -15431,6 +15431,55 @@
 <td>Refund total. <i class="label label-info">read-only</i></td>
 </tr>
 </tbody></table>
+<h3 id='order-taxes-properties'>Order - Taxes properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Item ID. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>rate_code</code></td>
+<td>string</td>
+<td>Tax rate code. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>rate_id</code></td>
+<td>string</td>
+<td>Tax rate ID. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>Tax rate label. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>compound</code></td>
+<td>boolean</td>
+<td>Show if is a compound tax rate. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>tax_total</code></td>
+<td>string</td>
+<td>Tax total (not including shipping taxes). <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>shipping_tax_total</code></td>
+<td>string</td>
+<td>Shipping tax total. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>meta_data</code></td>
+<td>array</td>
+<td>Meta data. See <a href="#order-meta-data-properties">Order - Meta data properties</a></td>
+</tr>
+</tbody></table>
 <h2 id='create-an-order'>Create an order</h2>
 <p>This API helps you to create a new order.</p>
 <h3 id='http-request'>HTTP request</h3>
@@ -18575,7 +18624,7 @@ Order notes are added by administrators and programmatically to store data about
 <tr>
 <td><code>taxes</code></td>
 <td>array</td>
-<td>Line taxes. See <a href="#order-refund-taxes-properties">Order refund - Taxes properties</a> <i class="label label-info">read-only</i></td>
+<td>Line taxes. See <a href="#order-refund-line-item-taxes-properties">Order refund line item - Taxes properties</a> <i class="label label-info">read-only</i></td>
 </tr>
 <tr>
 <td><code>meta_data</code></td>
@@ -18591,6 +18640,30 @@ Order notes are added by administrators and programmatically to store data about
 <td><code>price</code></td>
 <td>string</td>
 <td>Product price. <i class="label label-info">read-only</i></td>
+</tr>
+</tbody></table>
+<h4 id='order-refund-line-item-taxes-properties'>Order refund line item - Taxes properties</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Tax rate ID. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td>string</td>
+<td>Tax total. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>subtotal</code></td>
+<td>string</td>
+<td>Tax subtotal. <i class="label label-info">read-only</i></td>
 </tr>
 </tbody></table>
 <h2 id='create-a-refund'>Create a refund</h2>
@@ -27436,14 +27509,14 @@ woocommerce.post("</span><span class="n">products</span><span class="o">/</span>
         <h6>/wp-json/wc/v2/products/tag/&lt;id&gt;</h6>
     </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/wc/v2/products/tag/34?force<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/wc/v2/products/tags/34?force<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
     -u consumer_key:consumer_secret
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">WooCommerce</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'products/tag/34?force=true'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">WooCommerce</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'products/tags/34?force=true'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'products/tags/34'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'force'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">]));</span> <span class="cp">?&gt;</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"products/tag/34?force=true"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"products/tag/34"</span><span class="p">,</span> <span class="ss">force: </span><span class="kp">true</span><span class="p">).</span><span class="nf">parsed_response</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"products/tags/34?force=true"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"products/tags/34"</span><span class="p">,</span> <span class="ss">force: </span><span class="kp">true</span><span class="p">).</span><span class="nf">parsed_response</span>
 </code></pre>
 <blockquote>
 <p>JSON response example:</p>
