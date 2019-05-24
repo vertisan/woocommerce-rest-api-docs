@@ -730,7 +730,7 @@
                     <a href="#setting-option-properties" class="toc-h2 toc-link" data-title="Setting option properties">Setting option properties</a>
                   </li>
                   <li>
-                    <a href="#retrieve-an-setting-option" class="toc-h2 toc-link" data-title="Retrieve an setting option">Retrieve an setting option</a>
+                    <a href="#retrieve-a-setting-option" class="toc-h2 toc-link" data-title="Retrieve a setting option">Retrieve a setting option</a>
                   </li>
                   <li>
                     <a href="#list-all-setting-options" class="toc-h2 toc-link" data-title="List all setting options">List all setting options</a>
@@ -1190,6 +1190,7 @@
 <ul>
 <li><a href="https://github.com/icoderman/wc-api-java">Java</a> Library</li>
 <li><a href="https://github.com/XiaoFaye/WooCommerce.NET">.NET</a> Library</li>
+<li><a href="https://github.com/gilokimu/WooDroid">Android</a> Library</li>
 </ul>
 
 <aside class="notice">
@@ -1204,7 +1205,7 @@
 <li><a href="https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12">Paw HTTP Client</a> - Another HTTP client for Mac OS X.</li>
 <li><a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">RESTClient, a debugger for RESTful web services</a> - Free Firefox add-on.</li>
 <li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST client</a> - Free Google Chrome extension.</li>
-<li><a href="https://requestb.in">RequestBin</a> - Allows you test webhooks.</li>
+<li><a href="https://requestbin.com">RequestBin</a> - Allows you test webhooks.</li>
 <li><a href="https://hookbin.com/">Hookbin</a> - Another tool to test webhooks.</li>
 </ul>
 <h2 id='learn-more'>Learn more</h2>
@@ -12859,7 +12860,7 @@
   <span class="p">]</span>
 <span class="p">};</span>
 
-<span class="nx">WooCommerce</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'customers/batch'</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">WooCommerce</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'coupons/batch'</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -12893,7 +12894,7 @@
     <span class="p">]</span>
 <span class="p">];</span>
 
-<span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'customers/batch'</span><span class="p">,</span> <span class="nv">$data</span><span class="p">));</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'coupons/batch'</span><span class="p">,</span> <span class="nv">$data</span><span class="p">));</span>
 <span class="cp">?&gt;</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"create"</span><span class="p">:</span> <span class="p">[</span>
@@ -12925,7 +12926,7 @@
     <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"customers/batch"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"coupons/batch"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">create: </span><span class="p">[</span>
     <span class="p">{</span>
@@ -12956,7 +12957,7 @@
   <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">woocommerce</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s2">"customers/batch"</span><span class="p">,</span> <span class="n">data</span><span class="p">).</span><span class="nf">parsed_response</span>
+<span class="n">woocommerce</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s2">"coupons/batch"</span><span class="p">,</span> <span class="n">data</span><span class="p">).</span><span class="nf">parsed_response</span>
 </code></pre>
 <blockquote>
 <p>JSON response example:</p>
@@ -13156,7 +13157,7 @@
 <tr>
 <td><code>date_created_gmt</code></td>
 <td>date-time</td>
-<td>The date the order was created, as GMT. <i class="label label-info">read-only</i></td>
+<td>The date the customer was created, as GMT. <i class="label label-info">read-only</i></td>
 </tr>
 <tr>
 <td><code>date_modified</code></td>
@@ -34278,7 +34279,7 @@ woocommerce.post("</span><span class="n">products</span><span class="o">/</span>
 <td>An identifier for the group this setting belongs to. <i class="label label-info">read-only</i></td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-an-setting-option'>Retrieve an setting option</h2>
+<h2 id='retrieve-a-setting-option'>Retrieve a setting option</h2>
 <p>This API lets you retrieve and view a specific setting option.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
