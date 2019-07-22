@@ -2114,10 +2114,10 @@ Many endpoints were improving with new versions of WooCommerce, so we always rec
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">WooCommerce</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'coupons/529/?force=true'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"coupons/529?force=true"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"coupons/529"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"force"</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">coupons</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="mi">529</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span> <span class="cp">?&gt;</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"coupons/529?force=true"</span><span class="p">).</span><span class="nf">parsed_response</span>
-</code></pre>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"coupons/529, force: true).parsed_response
+</span></code></pre>
 <blockquote>
 <p>JSON response example:</p>
 </blockquote>
@@ -4793,10 +4793,10 @@ Many endpoints were improving with new versions of WooCommerce, so we always rec
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">WooCommerce</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'orders/645/?force=true'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"orders/645/?force=true"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"orders/645/"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"force"</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">orders</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="mi">645</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span> <span class="cp">?&gt;</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"orders/645/?force=true"</span><span class="p">).</span><span class="nf">parsed_response</span>
-</code></pre>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"orders/645/, force: true).parsed_response
+</span></code></pre>
 <blockquote>
 <p>JSON response example:</p>
 </blockquote>
@@ -7657,10 +7657,10 @@ Many endpoints were improving with new versions of WooCommerce, so we always rec
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">WooCommerce</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'products/546/?force=true'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"products/546/?force=true"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"products/546/"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"force"</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">products</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="mi">546</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span> <span class="cp">?&gt;</span>
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"products/546"</span><span class="p">).</span><span class="nf">parsed_response</span>
-</code></pre>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"products/546, force: true).parsed_response
+</span></code></pre>
 <blockquote>
 <p>JSON response example:</p>
 </blockquote>
