@@ -945,6 +945,7 @@
 <ul>
 <li><a href="https://github.com/icoderman/wc-api-java">Java</a> Library</li>
 <li><a href="https://github.com/XiaoFaye/WooCommerce.NET">.NET</a> Library</li>
+<li><a href="https://github.com/gilokimu/WooDroid">Android</a> Library</li>
 </ul>
 
 <aside class="notice">
@@ -954,11 +955,10 @@
 <p>Some useful tools you can use to access the API include:</p>
 
 <ul>
-<li><a href="https://www.getpostman.com/">Postman</a> - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).</li>
-<li><a href="http://mmattozzi.github.io/cocoa-rest-client/">CocoaRestClient</a> - A Mac OS X GUI client for interacting with the API.</li>
-<li><a href="https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12">Paw HTTP Client</a> - Another HTTP client for Mac OS X.</li>
-<li><a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">RESTClient, a debugger for RESTful web services</a> - Free Firefox add-on.</li>
-<li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST client</a> - Free Google Chrome extension.</li>
+<li><a href="https://insomnia.rest">Insomnia</a> - Cross-platform GraphQL and REST client, available for Mac, Windows, and Linux.</li>
+<li><a href="https://www.getpostman.com/">Postman</a> - Cross-platform REST client, available for Mac, Windows, and Linux.</li>
+<li><a href="https://requestbin.com">RequestBin</a> - Allows you test webhooks.</li>
+<li><a href="https://hookbin.com/">Hookbin</a> - Another tool to test webhooks.</li>
 </ul>
 <h1 id='authentication'>Authentication</h1>
 <p>WooCommerce includes two ways to authenticate with the WP REST API. It is also possible to authenticate using any <a href="http://v2.wp-api.org/guide/authentication/">WP REST API authentication</a> plugin or method.</p>
@@ -6527,6 +6527,10 @@
 </tbody></table>
 <h2 id='batch-update-coupons'>Batch update coupons</h2>
 <p>This API helps you to batch create, update and delete multiple coupons.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-6'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -7806,6 +7810,10 @@
 </tbody></table>
 <h2 id='batch-update-customers'>Batch update customers</h2>
 <p>This API helps you to batch create, update and delete multiple customers.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-6'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -10308,6 +10316,10 @@
 </tbody></table>
 <h2 id='batch-update-orders'>Batch update orders</h2>
 <p>This API helps you to batch create, update and delete multiple orders.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-6'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -15023,6 +15035,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-products'>Batch update products</h2>
 <p>This API helps you to batch create, update and delete multiple products.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-6'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -16582,6 +16598,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-product-attributes'>Batch update product attributes</h2>
 <p>This API helps you to batch create, update and delete multiple product attributes.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-5'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -17314,6 +17334,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-attribute-terms'>Batch update attribute terms</h2>
 <p>This API helps you to batch create, update and delete multiple product attribute terms.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -18232,6 +18256,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-product-categories'>Batch update product categories</h2>
 <p>This API helps you to batch create, update and delete multiple product categories.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -18902,6 +18930,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-shipping-classes'>Batch update shipping classes</h2>
 <p>This API helps you to batch create, update and delete multiple product shipping classes.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -19518,6 +19550,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-product-tags'>Batch update product tags</h2>
 <p>This API helps you to batch create, update and delete multiple product tags.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -20777,6 +20813,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-tax-rates'>Batch update tax rates</h2>
 <p>This API helps you to batch create, update and delete multiple tax rates.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-5'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -24875,6 +24915,10 @@ Order notes are added by administrators and programmatically to store data about
 </tbody></table>
 <h2 id='batch-update-webhooks'>Batch update webhooks</h2>
 <p>This API helps you to batch create, update and delete multiple webhooks.</p>
+
+<aside class="notice">
+Note: By default it's limited to up to 100 objects to be created, updated or deleted. 
+</aside>
 <h3 id='http-request-6'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
