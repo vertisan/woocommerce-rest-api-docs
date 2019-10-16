@@ -1113,6 +1113,7 @@
 <li><code>success</code> sends <code>0</code> if the user denied, or <code>1</code> if authenticated successfully.</li>
 <li>Use <code>user_id</code> to identify the user when redirected back to the (<code>return_url</code>) and also remember to save the API Keys when your <code>callback_url</code> is posted to after auth.</li>
 <li>The auth endpoint will send the API Keys in JSON format to the <code>callback_url</code>, so it&#39;s important to remember that some languages such as PHP will not display it inside the <code>$_POST</code> global variable, in PHP you can access it using <code>$HTTP_RAW_POST_DATA</code> (for old PHP versions) or <code>file_get_contents(&#39;php://input&#39;);</code>.</li>
+<li>The URL generated must have all query string values encoded.</li>
 </ul>
 <h2 id='authentication-over-https'>Authentication over HTTPS</h2>
 <p>You may use <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a> by providing the REST API Consumer Key as the username and the REST API Consumer Secret as the password.</p>
