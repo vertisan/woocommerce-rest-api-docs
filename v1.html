@@ -47,7 +47,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -131,7 +131,7 @@
 .highlight .s1 {
   color: #e6db74;
 }
-.highlight .s {
+.highlight .s, .highlight .sa, .highlight .dl {
   color: #e6db74;
 }
 .highlight .na {
@@ -146,41 +146,52 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nn {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nl {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ni {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .bp {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vg {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vi {
   color: #ffffff;
+  background-color: #272822;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .w {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ow {
   color: #f92672;
@@ -210,12 +221,12 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
       <a href="#" class="logo">
-        <img src="images/logo.png" alt="Logo" />
+        <img src="images/logo.png" alt="" />
       </a>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
@@ -291,7 +302,7 @@
       </ul>
         <ul class="toc-footer">
             <li><a href="https://github.com/woocommerce/woocommerce-rest-api-docs">Contributing to WC REST API Docs</a></li>
-            <li><a href="https://github.com/woocommerce/woocommerce/tree/master/includes/api">REST API Source on GitHub</a></li>
+            <li><a href="https://github.com/woocommerce/woocommerce/tree/master/includes/rest-api">REST API Source on GitHub</a></li>
             <li><a href="https://github.com/woocommerce/woocommerce/issues?labels=API&amp;page=1&amp;state=open">REST API Issues</a></li>
             <li><a href="https://docs.woocommerce.com/documentation/plugins/woocommerce/">WooCommerce Documentation</a></li>
             <li><a href="https://github.com/woocommerce/woocommerce">WooCommerce Repository</a></li>
@@ -329,12 +340,12 @@
 <p>There are two ways to authenticate with the API, depending on whether the site supports SSL or not.  Remember that the Index endpoint will indicate if the site supports SSL or not.</p>
 <h3 id='over-https'>Over HTTPS</h3>
 <p>You may use <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a> by providing the API Consumer Key as the username and the API Consumer Secret as the password:</p>
-<pre class="highlight plaintext"><code>$ curl https://www.example.com/wc-api/v1/orders \
+<div class="highlight"><pre class="highlight plaintext"><code>$ curl https://www.example.com/wc-api/v1/orders \
     -u consumer_key:consumer_secret
-</code></pre>
+</code></pre></div>
 <p>Occasionally some servers may not properly parse the Authorization header (if you see a &quot;Consumer key is missing&quot; error when authenticating over SSL, you have a server issue). In WooCommerce 2.1.7+, you may provide the consumer key/secret as query string parameters:</p>
-<pre class="highlight plaintext"><code>$ curl https://www.example.com/wc-api/v1/orders?consumer_key=123&amp;consumer_secret=abc
-</code></pre><h3 id='over-http'>Over HTTP</h3>
+<div class="highlight"><pre class="highlight plaintext"><code>$ curl https://www.example.com/wc-api/v1/orders?consumer_key=123&amp;consumer_secret=abc
+</code></pre></div><h3 id='over-http'>Over HTTP</h3>
 <p>You must use <a href="http://tools.ietf.org/html/rfc5849">OAuth 1.0a &quot;one-legged&quot; authentication</a> to ensure API credentials cannot be intercepted. Typically you may use any standard OAuth 1.0a library in your language of choice to handle the authentication, or generate the necessary parameters by following these instructions.</p>
 <h4 id='generating-an-oauth-signature'>Generating an OAuth signature</h4>
 <p>1) Set the HTTP method for the request:</p>
@@ -342,11 +353,11 @@
 <p><code>GET</code></p>
 
 <p>2) Set your base request URI -- this is the full request URI without query string parameters -- and URL encode according to RFC 3986:</p>
-<pre class="highlight plaintext"><code>http://www.example.com/wc-api/v1/orders
-</code></pre>
+<div class="highlight"><pre class="highlight plaintext"><code>http://www.example.com/wc-api/v1/orders
+</code></pre></div>
 <p>when encoded:</p>
-<pre class="highlight plaintext"><code>http%3A%2F%2Fwww.example.com%2Fwc-api%2Fv1%2Forders
-</code></pre>
+<div class="highlight"><pre class="highlight plaintext"><code>http%3A%2F%2Fwww.example.com%2Fwc-api%2Fv1%2Forders
+</code></pre></div>
 <p>3) Collect and normalize your query string parameters. This includes all <code>oauth_*</code> parameters except for the signature. Parameters should be normalized by URL encoding according to RFC 3986 (<code>rawurlencode</code> in PHP) and percent(<code>%</code>) characters should be double-encoded (e.g. <code>%</code> becomes <code>%25</code>.</p>
 
 <p>4) Sort the parameters in byte-order (<code>uksort( $params, &#39;strcmp&#39; )</code> in PHP)</p>
@@ -365,7 +376,7 @@
 
 <p>8) Generate the signature using the string to key and your consumer secret key</p>
 
-<p>If you are having trouble generating a correct signature, you&#39;ll want to review your string to sign for errors with encoding. The <a href="https://github.com/woocommerce/woocommerce/blob/master/includes/api/class-wc-api-authentication.php#L177">authentication source</a> can also be helpful in understanding how to properly generate the signature.</p>
+<p>If you are having trouble generating a correct signature, you&#39;ll want to review your string to sign for errors with encoding. The <a href="https://github.com/woocommerce/woocommerce/blob/master/includes/class-wc-rest-authentication.php#L185">authentication source</a> can also be helpful in understanding how to properly generate the signature.</p>
 <h4 id='oauth-tips'>OAuth Tips</h4>
 <ul>
 <li><p>The OAuth parameters must be added as query string parameters and <em>not</em> include in the Authorization header.</p></li>
@@ -430,7 +441,7 @@
 <ul>
 <li>Invalid requests, such as using an unsupported HTTP method will result in <code>400 Bad Request</code>:</li>
 </ul>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_unsupported_method",
@@ -438,11 +449,11 @@
     }
   ]
 }
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Authentication or permission errors, such as incorrect API keys will result in <code>401 Unauthorized</code>:</li>
 </ul>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_authentication_error",
@@ -450,11 +461,11 @@
     }
   ]
 }
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Requests to resources that don&#39;t exist or are missing required parameters will result in <code>404 Not Found</code>:</li>
 </ul>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_invalid_order",
@@ -462,11 +473,11 @@
     }
   ]
 }
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Requests that cannot be processed due to a server error will result in <code>500 Internal Server Error</code>:</li>
 </ul>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_invalid_handler",
@@ -474,7 +485,7 @@
     }
   ]
 }
-</code></pre>
+</code></pre></div>
 <p>Errors return both an appropriate HTTP status code and response object which contains a <code>code</code> and <code>message</code> attribute. If an endpoint has any custom errors, they are documented with that endpoint.</p>
 <h2 id='http-verbs'>HTTP Verbs</h2>
 <p>The API uses the appropriate HTTP verb for each action:</p>
@@ -504,9 +515,9 @@
 <p>The total number of resources and pages are always included in the <code>X-WC-Total</code> and <code>X-WC-TotalPages</code> HTTP headers.</p>
 <h3 id='link-header'>Link Header</h3>
 <p>Pagination info is included in the <a href="http://tools.ietf.org/html/rfc5988">Link Header</a>. It&#39;s recommended that you follow these values instead of building your own URLs where possible.</p>
-<pre class="highlight plaintext"><code>Link: &lt;https://www.example.com/wc-api/v1/products?page=2&gt;; rel="next",
+<div class="highlight"><pre class="highlight plaintext"><code>Link: &lt;https://www.example.com/wc-api/v1/products?page=2&gt;; rel="next",
 &lt;https://www.example.com/wc-api/v1/products?page=3&gt;; rel="last"`
-</code></pre>
+</code></pre></div>
 <p><em>Linebreak included for readability</em></p>
 
 <p>The possible <code>rel</code> values are:</p>
@@ -519,12 +530,12 @@
 </ul>
 <h2 id='json-p-support'>JSON-P Support</h2>
 <p>The API supports JSON-P by default. You can specify the callback using the <code>?_jsonp</code> parameter for <code>GET</code> requests to have the response wrapped in a JSON function:</p>
-<pre class="highlight plaintext"><code>GET /orders/count?_jsonp=ordersCount
+<div class="highlight"><pre class="highlight plaintext"><code>GET /orders/count?_jsonp=ordersCount
 
 ordersCount({"count":8})
-</code></pre>
+</code></pre></div>
 <p>If the site administrator has chosen to disable it, you will receive a<code>400 Bad Request</code> error:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_jsonp_disabled",
@@ -532,9 +543,9 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre>
+</code></pre></div>
 <p>If your callback contains invalid characters, you will receive a <code>400 Bad Request</code> error:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_jsonp_callback_invalid",
@@ -542,11 +553,11 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h1 id='endpoints'>Endpoints</h1>
+</code></pre></div><h1 id='endpoints'>Endpoints</h1>
 <p>The API supports 5 primary resources, each with a related set of endpoints.</p>
 <h2 id='index'>Index</h2>
 <p>The API index provides information about the endpoints available for the site, as well as store-specific information. No authentication is required to access the API index, however if the REST API is disabled, you will receive a <code>404 Not Found</code> error:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "errors" : [
     {
       "code" : "woocommerce_api_disabled",
@@ -554,7 +565,7 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h3 id='store-properties'>Store Properties</h3>
+</code></pre></div><h3 id='store-properties'>Store Properties</h3>
 <ul>
 <li><code>routes</code>: a list of available endpoints for the site keyed by relative URL. Each endpoint specifies the HTTP methods supported as well as the canonical URL.</li>
 <li><code>dimension_unit</code>: the unit set for product dimensions. Valid units are <code>cm</code>, <code>m</code>, <code>cm</code>, <code>mm</code>, <code>in</code>, and <code>yd</code></li>
@@ -571,7 +582,7 @@ ordersCount({"count":8})
 </ul>
 <h3 id='get'><code>GET /</code></h3>
 <p>Retrieve a set of store information:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "store" : {
     "routes" : {
       "/customers" : {
@@ -745,7 +756,7 @@ ordersCount({"count":8})
     "URL" : "http://www.example.com"
   }
 }
-</code></pre><h2 id='coupons'>Coupons</h2><h3 id='coupon-properties'>Coupon Properties</h3>
+</code></pre></div><h2 id='coupons'>Coupons</h2><h3 id='coupon-properties'>Coupon Properties</h3>
 <ul>
 <li><code>expiry_date</code>: the date the coupon is expired</li>
 <li><code>individual_use</code>: true if the coupon may only be used individually, false otherwise</li>
@@ -757,7 +768,7 @@ ordersCount({"count":8})
 <p>@TODO</p>
 <h3 id='get-coupons'><code>GET /coupons</code></h3>
 <p>Retrieve a list of coupons:</p>
-<pre class="highlight plaintext"><code>"coupons" : [
+<div class="highlight"><pre class="highlight plaintext"><code>"coupons" : [
     {
       "expiry_date" : "2013-11-22T00:00:00Z",
       "individual_use" : false,
@@ -787,16 +798,16 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h3 id='get-coupons-count'><code>GET /coupons/count</code></h3>
+</code></pre></div><h3 id='get-coupons-count'><code>GET /coupons/count</code></h3>
 <p>Retrieve a count of all coupons:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "count" : 3
 }
-</code></pre><h3 id='get-coupons-id'><code>GET /coupons/#{id}</code></h3><h3 id='get-coupons-code-code'><code>GET /coupons/code/{code}</code></h3>
+</code></pre></div><h3 id='get-coupons-id'><code>GET /coupons/#{id}</code></h3><h3 id='get-coupons-code-code'><code>GET /coupons/code/{code}</code></h3>
 <p>Retrieve a single coupon specified by it&#39;s ID or code.</p>
 
 <p>Note that coupon codes may contain spaces, dashes and underscores and should be URL-encoded.</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "coupon" : {
     "expiry_date" : "2013-11-22T00:00:00Z",
     "individual_use" : false,
@@ -825,13 +836,13 @@ ordersCount({"count":8})
     "customer_emails" : []
   }
 }
-</code></pre><h2 id='customers'>Customers</h2>
+</code></pre></div><h2 id='customers'>Customers</h2>
 <p>All endpoints (except for customer orders) support  date filtering via <code>created_at_min</code> and <code>created_at_max</code> as <code>?filter[]</code> parameters. e.g. <code>?filter[created_at_min]=2013-12-01</code></p>
 <h3 id='customer-properties'>Customer Properties</h3>
 <p>@TODO</p>
 <h3 id='get-customers'><code>GET /customers</code></h3>
 <p>Retrieve a list of customers:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "customers" : [
     {
       "id" : 4,
@@ -872,14 +883,14 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h3 id='get-customers-count'><code>GET /customers/count</code></h3>
+</code></pre></div><h3 id='get-customers-count'><code>GET /customers/count</code></h3>
 <p>Retrieve a count of all customers:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "count" : 18
 }
-</code></pre><h3 id='get-customers-id'><code>GET /customers/#{id}</code></h3>
+</code></pre></div><h3 id='get-customers-id'><code>GET /customers/#{id}</code></h3>
 <p>Retrieve a single customer specified by their ID:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "customer" : {
     "id" : 4,
     "last_order_date" : "2013-12-10T18:58:00Z",
@@ -918,9 +929,9 @@ ordersCount({"count":8})
     "email" : "thedon@mailinator.com"
   }
 }
-</code></pre><h3 id='get-customers-id-orders'><code>GET /customers/#{id}/orders</code></h3>
+</code></pre></div><h3 id='get-customers-id-orders'><code>GET /customers/#{id}/orders</code></h3>
 <p>Retrieve a list of orders for a customer specified by their ID:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "orders" : [
     {
       "completed_at" : "2013-12-10T18:59:30Z",
@@ -1038,7 +1049,7 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h2 id='orders'>Orders</h2>
+</code></pre></div><h2 id='orders'>Orders</h2>
 <p>All endpoints (except for order notes) support the full set of date filters (<code>created_at_min</code>, <code>created_at_max</code>, <code>updated_at_min</code>, <code>updated_at_max</code>) as <code>?filter[]</code> parameters. e.g. <code>?filter[created_at_min]=2013-12-01</code></p>
 <h3 id='order-properties'>Order Properties</h3>
 <p>@TODO</p>
@@ -1046,7 +1057,7 @@ ordersCount({"count":8})
 <p>Retrieve a list of orders</p>
 
 <p>You can use the <code>?status?</code> parameter to limit the orders returned to a specific order status. The default WooCommerce order statuses are <code>pending</code>, <code>on-hold</code>, <code>processing</code>, <code>completed</code>, <code>refunded</code>, <code>failed</code>, and <code>cancelled</code>. Custom order statuses are supported.</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "orders" : [
     {
       "completed_at" : "2013-12-10T18:59:30Z",
@@ -1164,14 +1175,14 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h3 id='get-orders-count'><code>GET /orders/count</code></h3>
+</code></pre></div><h3 id='get-orders-count'><code>GET /orders/count</code></h3>
 <p>Retrieve a count of all orders:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "count" : 27
 }
-</code></pre><h3 id='get-orders-id'><code>GET /orders/#{id}</code></h3>
+</code></pre></div><h3 id='get-orders-id'><code>GET /orders/#{id}</code></h3>
 <p>Retrieve a single order specified by it&#39;s ID:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "order" : {
     "completed_at" : "2013-12-10T18:59:30Z",
     "tax_lines" : [],
@@ -1287,16 +1298,16 @@ ordersCount({"count":8})
     }
   }
 }
-</code></pre><h3 id='put-orders-id-status-status'><code>PUT /orders/#{id}?status={status}</code></h3>
+</code></pre></div><h3 id='put-orders-id-status-status'><code>PUT /orders/#{id}?status={status}</code></h3>
 <p>Update the status for an order specified by it&#39;s ID</p>
 
 <p>The request body should be JSON:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
     "status":"completed"
 }
-</code></pre>
+</code></pre></div>
 <p>If successful, the updated order is returned:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "order" : {
     "completed_at" : "2013-12-10T18:59:30Z",
     "tax_lines" : [],
@@ -1412,9 +1423,9 @@ ordersCount({"count":8})
     }
   }
 }
-</code></pre><h3 id='get-orders-id-notes'><code>GET /orders/#{id}/notes</code></h3>
+</code></pre></div><h3 id='get-orders-id-notes'><code>GET /orders/#{id}/notes</code></h3>
 <p>Retrieve a list of notes for an order specified by it&#39;s ID:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "order_notes" : [
     {
       "note" : "Order status changed from processing to completed.",
@@ -1436,7 +1447,7 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h2 id='products'>Products</h2>
+</code></pre></div><h2 id='products'>Products</h2>
 <p>All endpoints (except for reviews) support the full set of date filters (<code>created_at_min</code>, <code>created_at_max</code>, <code>updated_at_min</code>, <code>updated_at_max</code>) as <code>?filter[]</code> parameters. e.g. <code>?filter[created_at_min]=2013-12-01</code></p>
 <h3 id='product-properties'>Product Properties</h3>
 <p>@TODO</p>
@@ -1444,7 +1455,7 @@ ordersCount({"count":8})
 <p>Retrieve a list of products</p>
 
 <p>You can use the <code>?type</code> parameter to specify that only certain product types should be returned. The default WooCommerce product types are: <code>simple</code>, <code>variable</code>, <code>grouped</code>,  and <code>external</code>. Custom product types are supported.</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "products" : [
     {
       "related_ids" : [
@@ -1537,18 +1548,18 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h3 id='get-products-count'><code>GET /products/count</code></h3>
+</code></pre></div><h3 id='get-products-count'><code>GET /products/count</code></h3>
 <p>Retrieve a count of all products</p>
 
 <p>You can use the <code>?type</code> parameter to specify that only certain product types should be returned. The default WooCommerce product types are: <code>simple</code>, <code>variable</code>, <code>grouped</code>,  and <code>external</code>. Custom product types are supported.</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "count" : 23
 }
-</code></pre><h3 id='get-products-id'><code>GET /products/#{id}</code></h3>
+</code></pre></div><h3 id='get-products-id'><code>GET /products/#{id}</code></h3>
 <p>Retrieve a product specified by it&#39;s ID</p>
 
 <p>Simple, Grouped, and External products will return a blank array for the <code>variations</code> property:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "product" : {
     "related_ids" : [
       93,
@@ -1639,9 +1650,9 @@ ordersCount({"count":8})
     "featured" : false
   }
 }
-</code></pre>
+</code></pre></div>
 <p>Variable products will return individual variations in the <code>variations</code> property:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "product" : {
     "related_ids" : [
       50,
@@ -1864,9 +1875,9 @@ ordersCount({"count":8})
     "featured" : false
   }
 }
-</code></pre>
+</code></pre></div>
 <p>Individual product variations will return a slightly different format than a regular product, with the parent variable product data in the <code>parent</code> attribute:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "product" : {
     "related_ids" : [
       60,
@@ -2074,9 +2085,9 @@ ordersCount({"count":8})
     "featured" : false
   }
 }
-</code></pre><h3 id='get-products-id-reviews'><code>GET /products/#{id}/reviews</code></h3>
+</code></pre></div><h3 id='get-products-id-reviews'><code>GET /products/#{id}/reviews</code></h3>
 <p>Retrieve a list of reviews for a product specified by it&#39;s ID:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "product_reviews" : [
     {
       "review" : "Ship it!",
@@ -2107,16 +2118,16 @@ ordersCount({"count":8})
     }
   ]
 }
-</code></pre><h2 id='reports'>Reports</h2><h3 id='report-properties'>Report Properties</h3>
+</code></pre></div><h2 id='reports'>Reports</h2><h3 id='report-properties'>Report Properties</h3>
 <p>@TODO</p>
 <h3 id='get-reports'><code>GET /reports</code></h3>
 <p>Retrieve a simple list of available reports:</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "reports" : [
     "sales"
   ]
 }
-</code></pre><h3 id='get-reports-sales'><code>GET /reports/sales</code></h3>
+</code></pre></div><h3 id='get-reports-sales'><code>GET /reports/sales</code></h3>
 <p>Retrieve a sales report</p>
 
 <p>You can specify either the period for which to retrieve sales or specify a start/end date. The supported periods are: <code>week</code>, <code>month</code>, <code>last_month</code>, and <code>year</code>. If you use an invalid period, <code>week</code> is used. If you don&#39;t specify a period, the current day is used.</p>
@@ -2128,7 +2139,7 @@ ordersCount({"count":8})
 <p><code>GET /reports/sales?filter[date_min]=2013-12-01&amp;filter[date_max]=2013-12-09</code> will return sales between December 1st and December 9th, inclusive.</p>
 
 <p>If you don&#39;t specify an end date, the current date will be used.</p>
-<pre class="highlight plaintext"><code>{
+<div class="highlight"><pre class="highlight plaintext"><code>{
   "sales" : {
     "total_shipping" : "0.00",
     "total_orders" : 3,
@@ -2223,7 +2234,7 @@ ordersCount({"count":8})
     "total_tax" : "0.00"
   }
 }
-</code></pre><h1 id='troubleshooting'>Troubleshooting</h1>
+</code></pre></div><h1 id='troubleshooting'>Troubleshooting</h1>
 <ul>
 <li>Nginx - Older configurations of Nginx can cause issues with the API, see <a href="https://github.com/woocommerce/woocommerce/issues/5616#issuecomment-47338737">this issue</a> for details</li>
 </ul>
